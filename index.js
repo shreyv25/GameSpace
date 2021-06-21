@@ -1,7 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = process.env.PORT;
+const port = 80;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 // used for session cookie
@@ -19,7 +19,7 @@ const customMware = require('./config/middleware');
 // setup the chat server to be used with socket.io
 const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
-chatServer.listen(5000);
+chatServer.listen(80);
 console.log('chat server is listening on port 5000');
 
 

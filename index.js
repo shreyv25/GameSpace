@@ -20,8 +20,8 @@ const customMware = require('./config/middleware');
 const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(port);
-const io = module.exports.io = require('socket.io')(http);
-console.log('chat server is listening on port ${port)');
+const io = module.exports.io = require('socket.io')(chatServer);
+console.log('chat server is listening on port ${port}');
 
 
 // app.use(sassMiddleware({

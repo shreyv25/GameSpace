@@ -92,3 +92,13 @@ app.listen(port, function (err) {
 
     console.log(`Server is running on port: ${port}`);
 });
+
+process.on('uncaughtException', err => {
+    console.log(`Uncaught Exception: ${err.message}`)
+    process.exit(1)
+})
+
+process.on('SIGTERM', signal => {
+    console.log(`Process ${process.pid} received a SIGTERM signal`)
+    process.exit(0)
+})

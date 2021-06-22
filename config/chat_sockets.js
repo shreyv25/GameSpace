@@ -1,6 +1,5 @@
-const io = module.exports.io = require('socket.io')(chatServer);
-module.exports.chatSockets = function (chatServer) {
-    let io = require('socket.io')(chatServer);
+module.exports.chatSockets = function (socketServer) {
+    let io = require('socket.io')(socketServer);
 
     io.sockets.on('connection', function (socket) {
         console.log('new connection received', socket.id);
